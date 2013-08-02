@@ -1,5 +1,12 @@
 #!/bin/sh
 
+mount_kernel_fs() {
+	mount -t proc proc /proc
+	mkdir -p /dev/pts
+	mkdir -p /dev/shm
+	mount -a
+}
+
 find_usr_local() {
 	for cmd in $(cat /proc/cmdline) ; do
 		case $cmd in
@@ -13,12 +20,8 @@ find_usr_local() {
 
 case "$1" in
 	start|"")
-		mount -t proc proc /proc
-		mkdir -p /dev/pts
-		mkdir -p /dev/shm
-		mount -a
-
-
+		mount_kernel_fs
+		find_usr_local
 		;;
 	*)	
 		;;
