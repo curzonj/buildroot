@@ -25,3 +25,6 @@ for i in /etc/init.d/S??* ;do
     esac
 done
 
+if [ -f /usr/local/etc/init.d/rcS ]; then
+    exec /usr/local/etc/init.d/rcS
+fi
