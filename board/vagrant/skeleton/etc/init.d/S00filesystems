@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case "$1" in
+	start|"")
+		mount -t proc proc /proc
+		mkdir -p /dev/pts
+		mkdir -p /dev/shm
+		mount -a
+		;;
+	*)	
+		;;
+esac
+

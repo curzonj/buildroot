@@ -1,0 +1,8 @@
+#!/bin/sh
+
+/bin/mount -t proc proc /proc
+/bin/mount -o remount,rw / # REMOUNT_ROOTFS_RW
+/bin/mkdir -p /dev/pts
+/bin/mkdir -p /dev/shm
+/bin/mount -a
+/bin/hostname -F /etc/hostname
