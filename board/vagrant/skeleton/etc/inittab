@@ -15,8 +15,7 @@
 
 # Startup the system
 ::sysinit:/etc/init.d/rcS
-
-console::respawn:-/bin/sh
+::respawn:-/bin/sh
 
 # Stuff to do before rebooting
 null::shutdown:/etc/init.d/rcK
